@@ -1,0 +1,27 @@
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+                                 http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+             version="2.2">
+    <!-- Definición de la unidad de persistencia -->
+    <persistence-unit name="miUnidadDePersistencia">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <!-- clases persistentes del proyecto -->
+        <class>org.example.modelo.Alumno</class>
+        <class>org.example.modelo.Curso</class>
+        <class>org.example.modelo.Profesor</class>
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://10.0.22.37:5432/cursos"/>
+            <property name="jakarta.persistence.jdbc.user" value="postgres"/>
+            <property name="jakarta.persistence.jdbc.password" value="postgres"/>
+
+            <!-- Configuración de dialecto de Hibernate para BD-->
+            <!-- Configuración pde comportamiento DDL (create, update, none)-->
+
+            <!-- Opcional: Configuración para ver las consultas SQL generadas-->
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+</persistence>

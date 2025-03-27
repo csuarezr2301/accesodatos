@@ -1,0 +1,28 @@
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+                                 http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+             version="2.2">
+    <!-- Definición de la unidad de persistencia -->
+    <persistence-unit name="miUnidadDePersistencia">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+
+        <properties>
+            <!-- Configuración de conexión a la base de datos -->
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3307/concurso2"/>
+            <property name="jakarta.persistence.jdbc.user" value="root"/>
+            <property name="jakarta.persistence.jdbc.password" value="root"/>
+
+
+
+            <!-- Opcional: Configuración para ver las consultas SQL generadas -->
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+
+            <!-- Configuración para evitar modificaciones en el esquema de la base de datos cambiar none por validate hace lo mismo mas o menos
+            <property name="hibernate.hbm2ddl.auto" value="validate"/> -->
+
+        </properties>
+    </persistence-unit>
+</persistence>

@@ -1,0 +1,38 @@
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+                     http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+             version="2.2">
+
+    <persistence-unit name="miUnidadDePersistencia">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <!-- Clases de entidad -->
+        <class>modelo.Empleado</class>
+        <class>modelo.Departamento</class>
+        <class>modelo.Sueldo</class>
+        <class>modelo.Estudio</class>
+
+
+
+        <properties>
+            <!-- Configuración de la conexión a la base de datos -->
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3307/empresa"/>
+            <property name="jakarta.persistence.jdbc.user" value="root"/>
+            <property name="jakarta.persistence.jdbc.password" value="mysql"/>
+
+            <!-- Configuración del driver JDBC -->
+            <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>
+
+            <!-- Configuración del dialecto de Hibernate -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+
+            <!-- Configuración del comportamiento DDL (create, update, none) -->
+            <property name="hibernate.hbm2ddl.auto" value="create"/> <!-- Cambia a "create" para borrar las tablas y crear nuevas -->
+
+            <!-- Opciones para mostrar las consultas SQL generadas -->
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+</persistence>
